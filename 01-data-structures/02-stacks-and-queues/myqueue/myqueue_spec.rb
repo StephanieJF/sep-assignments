@@ -41,7 +41,7 @@ RSpec.describe MyQueue, type: Class do
   end
 
   describe "#empty?" do
-    it "returns true if the queue is emtpy" do
+    it "returns true if the queue is empty" do
       expect(q.empty?).to eq true
     end
 
