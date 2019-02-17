@@ -1,0 +1,7 @@
+Spatial locality is a concept that items with nearby locations tend to be referenced around the same time.
+In other words, it can be speculated that data surrounding the current reference may need to be accessed
+around the time the current reference is retrieved. Spatial locality helps to increases the likelihood of cache
+"hits" by keeping these nearby items in one place, and therefore, when an item is retrieved, retrieving the
+items nearby the current reference can be retrieved at the same time and stored in a place with easier access,
+the cache. This will result in greater overall efficiency in the long run by saving additional trips of going
+back into the RAM to retrieve that information.
