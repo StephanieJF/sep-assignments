@@ -5,3 +5,24 @@ around the time the current reference is retrieved. Spatial locality helps to in
 items nearby the current reference can be retrieved at the same time and stored in a place with easier access,
 the cache. This will result in greater overall efficiency in the long run by saving additional trips of going
 back into the RAM to retrieve that information.
+
+
+*Compare the time it takes to create a 10,000 item Array to appending 10,000 items to a Linked List.*
+
+       user     system      total        real
+create array:   0.000000   0.000000   0.000000 (  0.000049)
+create linked-list:   0.010000   0.000000   0.010000 (  0.003320)
+
+*Compare the time it takes to access the 5000th element of the Array and the 5000th Node in the Linked List.*
+
+       user     system      total        real
+5000th element of array:   0.000000   0.000000   0.000000 (  0.000002)
+5000th node of linked-list:   0.000000   0.000000   0.000000 (  0.000249)
+
+*Compare the time it takes to remove the 5000th element from the Array to removing the 5000th Node in the Linked List.*
+*In the Array, the 5001st item becomes the 5000th, and so on.*
+
+       user     system      total        real
+remove 5000th element of array:   0.000000   0.000000   0.000000 (  0.000004)
+remove 5000th node of linked-list:   0.000000   0.000000   0.000000 (  0.001157)
+

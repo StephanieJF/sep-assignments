@@ -80,5 +80,20 @@ class LinkedList
     temp = @head
     @head = @head.next
     temp
+  end
+
+  #This method finds the `num`th element in a linked list (to be used for benchmark testing compared to
+  # the array method of `array[num]`)
+  def find_node(num)
+    count = 1
+    current = @head
+    while current != nil
+      if count == num
+        return current.data
+      else
+        current = current.next
+        count +=1
+      end
     end
+  end
 end
