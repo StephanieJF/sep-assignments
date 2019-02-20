@@ -13,7 +13,7 @@ RSpec.describe HashClass, type: Class do
     end
   end
 
-  describe "#key" do
+  describe "#key" do #lookup based  on a key
     it "returns the sum of the ascii values of the string value" do
       key = "test"
       expect(lotr_movies.index(key, 6)).to eq 4
@@ -40,7 +40,7 @@ RSpec.describe HashClass, type: Class do
     end
   end
 
-  describe "hash[key] = value" do
+  describe "hash[key] = value" do #insertion
     it "does not resize the array when a collision occurs and the values match" do
       hash = HashClass.new(1)
       hash["key"] = "value"
