@@ -7,31 +7,45 @@ class HashClass
 
   def []=(key, value)
     i = index(key, size)
-    if @items[i] == nil
-      @items[i] = HashItem.new(key, value)
+    to_insert = HashItem.new(key, value)
+    return if @items[i] == to_insert
+    if @items[i].nil?
+      @items[i] = to_insert
     elsif @items[i].key == key
-      @items[i] = HashItem.new(key, value)
+      @items[i] = to_insert
     else
-      resize
+      while @items[i] != nil && @items[i] != value do
+        resize
+      end
+      @items[i] = to_insert
     end
-    @items[i] = HashItem.new(key, value)
   end
 
+  ##IF collection[index] === to_insert
+    ##Do Nothing
+  ##ELSIF collection[index].nil?
+    ####Insert
+  ##ELSIF collection[index].key === to_insert.key
+    ##Update value
+  ##ELSIF collision
+    ##Resize
 
   def [](key)
-   @items[index(key, size)]
-
+    i = index(key, size)
+    if @items[i] != nil
+      @items[i].value
+    end
   end
 
   def resize
-    new_size = @size * 2
-    resize_hash = Array.new(new_size)
+    @size *=2
+    resized_hash = Array.new(@size)
     @items.each do |item|
       if item != nil
-        resize_hash[index(item.key, new_size)] = item
+        resized_hash[index(item.key, @size)] = item
       end
     end
-    @items = resize_hash
+    @items = resized_hash
   end
 
   # Returns a unique, deterministically reproducible index into an array
