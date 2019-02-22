@@ -1,0 +1,8 @@
+Explain why doubling the size of the underlying array of your HashClass may be a poor idea.
+
+As the underlying array doubles, efficiency of the program declines. This is due to increased fragmentation (open indices spaced intermittently
+throughout the data structure) which takes up space/memory and slows search time. In addition, performance can slow due to the time it takes to
+recompute the indices from each of the keys with the new size of the array, then transfer them over to a new hash. The key to minimizing these
+issues is to ensure your hash has a good balance of filled indices and empty indices (ensuring the doubling of the underlying array is only done
+when needed or when a preset threshold is reached). This will ensure that storage is being used efficiently in the sense that there
+will be enough indices available to minimize the number of collisions, but not so many that it affects the performance of the program.
