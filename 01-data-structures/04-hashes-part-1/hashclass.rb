@@ -14,7 +14,7 @@ class HashClass
     elsif @items[i].key == key
       @items[i] = to_insert
     else
-      while @items[i] != nil && @items[i] != value do
+      while @items[index(key, size)] != nil && @items[index(key, size)] != value do
         resize
       end
       @items[i] = to_insert
