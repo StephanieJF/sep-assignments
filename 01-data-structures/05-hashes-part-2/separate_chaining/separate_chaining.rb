@@ -8,6 +8,7 @@ class SeparateChaining
   end
 
   def []=(key, value)
+
   end
 
   def [](key)
