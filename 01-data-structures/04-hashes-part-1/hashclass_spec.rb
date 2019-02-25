@@ -13,7 +13,7 @@ RSpec.describe HashClass, type: Class do
     end
   end
 
-  describe "#key" do
+  describe "#key" do #lookup based  on a key
     it "returns the sum of the ascii values of the string value" do
       key = "test"
       expect(lotr_movies.index(key, 6)).to eq 4
@@ -40,7 +40,7 @@ RSpec.describe HashClass, type: Class do
     end
   end
 
-  describe "hash[key] = value" do
+  describe "hash[key] = value" do #insertion
     it "does not resize the array when a collision occurs and the values match" do
       hash = HashClass.new(1)
       hash["key"] = "value"
@@ -49,6 +49,17 @@ RSpec.describe HashClass, type: Class do
       expect(hash.size).to eq 1
     end
 
+
+    it "resizes the array when a collision occurs and the values do not match" do
+      hash = HashClass.new(1)
+      hash["key"] = "value"
+      expect(hash.size).to eq 1
+      hash["key"] = "different"
+      expect(hash.size).to eq 1
+      expect(hash["key"]).to eq "different"
+    end
+
+=begin
     it "resizes the array when a collision occurs and the values do not match" do
       hash = HashClass.new(1)
       hash["key"] = "value"
@@ -56,6 +67,8 @@ RSpec.describe HashClass, type: Class do
       hash["key"] = "different"
       expect(hash.size).to eq 2
     end
+=end
+
 
     it "sets the value of key to value" do
       lotr_movies["The Lord of the Rings: The Fellowship of the Ring"] = "3 hours, 48 minutes"
