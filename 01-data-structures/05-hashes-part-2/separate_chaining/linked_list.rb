@@ -5,8 +5,8 @@ class LinkedList
   attr_accessor :tail
 
   def initialize
-    @head = nil
-    @tail = nil
+    @head = head
+    @tail = tail
   end
 
   # This method creates a new `Node` using `data`, and inserts it at the end of the list.
