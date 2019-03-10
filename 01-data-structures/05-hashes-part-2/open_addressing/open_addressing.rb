@@ -4,6 +4,8 @@ class OpenAddressing
   def initialize(size)
     @items = Array.new(size)
     @size = size
+    @num_items = 0
+    @num_resizes = 0
   end
 
   def []=(key, value)
@@ -15,10 +17,12 @@ class OpenAddressing
     else
       while i == -1
         resize
+        @num_resizes += 1
         i = next_open_index(index(key, size))
       end
     end
     @items[i] = new_node
+    @num_items += 1
   end
 
   def [](key)
@@ -67,5 +71,14 @@ class OpenAddressing
       end
     end
     @items = resized_hash
+  end
+
+  def print_hash
+    @items.each_with_index do |item, index|
+      if item != nil
+        puts "\nIndex- #{index}, Key: #{item.key}, Value: #{item.value}"
+      end
+    end
+    puts "\nThis hash contains #{@num_items} #{@num_items == 1 ? 'item' : 'items'} in an array of size #{@size}. It had to be resized #{@num_resizes} #{@num_resizes == 1 ? 'time' : 'times'}."
   end
 end
