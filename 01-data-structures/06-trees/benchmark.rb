@@ -15,25 +15,25 @@ Benchmark.bm do |benchmark|
 		end
 	end
 
-	# benchmark.report("create binary heap") do
-	# 	99999.times do
-	# 		heap.insert(root, rand_node)
-	# 	end
-	# end
+	benchmark.report("create binary heap") do
+		99999.times do
+			heap.insert(root, rand_node)
+		end
+	end
 
 	benchmark.report("tree-find 50000") do
 		tree.find(root, 50000)
 	end
 
-	# benchmark.report("heap-find 50000") do
-	# 	heap.find(root, 50000)
-	# end
+	benchmark.report("heap-find 50000") do
+		heap.find(root, 50000)
+	end
 
 	benchmark.report("tree-delete 50000") do
 		tree.delete(root, 50000)
 	end
 
-	# benchmark.report("heap-delete 50000") do
-	# 	heap.delete(root, 50000)
-	# end
+	benchmark.report("heap-delete 50000") do
+		heap.delete(root, 50000)
+	end
 end
