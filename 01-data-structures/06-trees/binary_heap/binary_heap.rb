@@ -1,4 +1,5 @@
 require_relative 'node'
+require 'benchmark'
 
 class BinaryHeap
 	attr_accessor :root
