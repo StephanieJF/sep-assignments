@@ -1,0 +1,20 @@
+											user     system      total        real
+create binary tree  0.020000   0.000000   0.020000 (  0.022766)
+create binary heap 10.850000	 0.900000	 11.750000 ( 12.650000)
+
+tree-find 50000  0.000000   0.000000   0.000000 (  0.000011)
+heap-find 50000  0.300000		0.000000	 0.300000 (  0.500000)
+
+tree-delete 50000  0.000000   0.000000   0.000000 (  0.000005)
+heap-delete 50000  0.100000		0.000000	 0.100000 ( 0.0200000)
+
+
+When would you use a Binary Search Tree and why?
+Binary search trees provide a way to store data without relying on indexing (as arrays do).
+This allows for faster insert, search, and delete than with other array-based data structures like
+linked lists.
+
+When would you use an Heap and why?
+Heaps can be used as priority queues which allow for order of the data both by the heap property
+as well as the order in which it was inserted. It can also be useful when you need to know the largest or
+smallest item in a set of data.
